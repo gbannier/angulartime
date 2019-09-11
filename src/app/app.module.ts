@@ -12,6 +12,7 @@ import {AppRoutingModule} from './app.routing.module';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {TimetrackingModule} from './components/timetracking/timetracking.module';
 
+
 registerLocaleData(localeDeCh);
 @NgModule({
   declarations: [
