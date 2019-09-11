@@ -1,7 +1,7 @@
 import {BaseModel} from './base.model';
 import {AdditionalFeeOption} from "./additional-fee-option.model";
 
-export interface Entry extends BaseModel {
+export class Entry extends BaseModel {
   ContractId: string;
   Description: string;
   Hours: number;
