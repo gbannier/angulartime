@@ -1,0 +1,22 @@
+[{
+  "id": "db32facf-31",
+  "CustomerName": "GHR Global Human Resources AG",
+  "Description": "A3409 GHR Global Human Resources AG/Kachappilly Thomas",
+  "StartDateDisplay": "2018-01-01",
+  "EndDateDisplay": "2019-12-31"
+},
+  {
+    "id": "ddddacf-333",
+    "CustomerName": "Peter Pansen",
+    "Description": "Neue Webseite für Peter Pansen",
+    "StartDateDisplay": "2018-01-01",
+    "EndDateDisplay": "2019-12-31"
+  },
+  {
+    "id": "asdfgf-321",
+    "CustomerName": "Willy Witzig",
+    "Description": "A5656765",
+    "StartDateDisplay": "2018-01-01",
+    "EndDateDisplay": "2019-12-31"
+  }
+]

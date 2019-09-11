@@ -1,0 +1,22 @@
+<div class="container">
+  <div *ngIf="!contracts" class="spinner-grow text-muted"></div>
+  <table *ngIf="contracts" class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">Kunde</th>
+      <th scope="col">Beschreibung</th>
+      <th scope="col">Von</th>
+      <th scope="col">Bis</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr [routerLink]="['/timetracking/projects', contract.id]"  routerLinkActive="active"  *ngFor="let contract of contracts; index as i">
+      <td>{{ contract.CustomerName }}</td>
+      <td>{{ contract.Description }}</td>
+      <td>{{ contract.StartDateDisplay | date }}</td>
+      <td>{{ contract.EndDateDisplay | date }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>

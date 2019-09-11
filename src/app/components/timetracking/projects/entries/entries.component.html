@@ -1,0 +1,24 @@
+<div>
+  <div *ngIf="!entries" class="spinner-grow text-muted"></div>
+  <table *ngIf="entries" class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Beschreibung</th>
+        <th scope="col">Datum</th>
+        <th scope="col">Stunden</th>
+        <th scope="col">Zuschlag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let entry of entries; index as i">
+        <td>{{ entry.Description }}</td>
+        <td>{{ entry.StartDateDisplay | date }}</td>
+        <td>{{ entry.Hours}}</td>
+        <td>{{ entry.AdditionalFeeId }}</td>
+        <td><button class="btn btn-sm btn-outline-primary ml-2" (click)="open(entry)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<hr>
