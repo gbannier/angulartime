@@ -14,7 +14,7 @@
         <td>{{ entry.Description }}</td>
         <td>{{ entry.StartDateDisplay | date }}</td>
         <td>{{ entry.Hours}}</td>
-        <td>{{ entry.AdditionalFeeId }}</td>
+        <td>{{ entry.AdditionalFeeId.value }}</td>
         <td><button class="btn btn-sm btn-outline-primary ml-2" (click)="open(entry)">Edit</button></td>
       </tr>
     </tbody>

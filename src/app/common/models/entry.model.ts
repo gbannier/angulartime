@@ -1,4 +1,5 @@
 import {BaseModel} from './base.model';
+import {AdditionalFeeOption} from "./additional-fee-option.model";
 
 export interface Entry extends BaseModel {
   ContractId: string;
@@ -8,5 +9,5 @@ export interface Entry extends BaseModel {
   StartDateDisplay: Date;
   UserId: string;
   SubContractId: string;
-  AdditionalFeeId: string;
+  AdditionalFeeId: string | AdditionalFeeOption;
 }

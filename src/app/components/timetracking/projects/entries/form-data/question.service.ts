@@ -19,12 +19,17 @@ export class QuestionService {
 
   }
 
-  private static formatDate(date: Date): NgbDateStruct {
+   static formatDate(date: Date): NgbDateStruct {
     return {
       year: date.getFullYear(),
       month: date.getMonth() + 1,
       day: date.getDay()
     };
+  }
+
+  getOptionValue(optionId: string): AdditionalFeeOption{
+    console.log(this.additionalFeeOptions.find((option)=>  option.id==optionId))
+    return this.additionalFeeOptions.find((option)=> option.id===optionId);
   }
 
    getQuestions() {

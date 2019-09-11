@@ -23,17 +23,17 @@ export class EntriesComponent implements OnInit {
     private questionService: QuestionService) {
   }
 
-  ngOnInit() {
-    this.dataService.getEntriesByProjectId(this.projectId).subscribe(
-      (entries: Entry[]) => {
-        this.entries = entries;
-      });
+  async ngOnInit() {
+    this.entries = await this.dataService.getEntriesByProjectId(this.projectId).toPromise();
+    this.questionService.additionalFeeOptions =
+        await this.dataService.getAdditionalFeeOptions().toPromise() as AdditionalFeeOption[];
+    this.entries.forEach((entry: Entry)=>entry.AdditionalFeeId=this.questionService.getOptionValue(entry.AdditionalFeeId as string));
+    console.log(this.entries);
   }
 
   async open(entry: Entry) {
     this.questionService.entry = entry;
-    this.questionService.additionalFeeOptions =
-      await this.dataService.getAdditionalFeeOptions().toPromise() as AdditionalFeeOption[];
+
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.currentData = entry; // ToDo redundant
     modalRef.componentInstance.modalHeader = 'Editiere Eintrag';
