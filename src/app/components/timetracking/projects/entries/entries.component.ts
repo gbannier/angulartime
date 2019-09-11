@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DataService} from '../../../../common/services/data.service';
+import {DataEntryService} from '../../../../common/services/data-entry.service';
 import {Entry} from '../../../../common/models/entry.model';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from './modal/modal.component';
@@ -18,7 +18,7 @@ export class EntriesComponent implements OnInit {
   closeResult: string;
 
   constructor(
-    private dataService: DataService,
+    private dataService: DataEntryService,
     private modalService: NgbModal,
     private questionService: QuestionService) {
   }
@@ -32,6 +32,7 @@ export class EntriesComponent implements OnInit {
 
   async open(entry: Entry) {
     this.questionService.entry = entry;
+    this.dataService.dataItem = entry;
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.modalHeader = 'Editiere Eintrag';
     modalRef.componentInstance.dataService = this.dataService;

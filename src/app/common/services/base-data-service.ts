@@ -2,9 +2,11 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {throwError} from "rxjs";
 import {Form, FormGroup} from "@angular/forms";
+import {BaseModel} from "../models/base.model";
 
 export abstract class BaseDataService {
     userId;  // userId seems not to needed?
+    dataItem: BaseModel;
     form: FormGroup;
 
     constructor(protected http: HttpClient) {

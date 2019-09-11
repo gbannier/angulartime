@@ -7,7 +7,7 @@ import {TextareaQuestion} from '../../../../../common/reactive-form/textarea-que
 import {NumberQuestion} from '../../../../../common/reactive-form/number-question';
 import {DateQuestion} from '../../../../../common/reactive-form/date-question';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {DataService} from '../../../../../common/services/data.service';
+import {DataEntryService} from '../../../../../common/services/data-entry.service';
 import {AdditionalFeeOption} from '../../../../../common/models/additional-fee-option.model';
 
 
@@ -15,7 +15,7 @@ import {AdditionalFeeOption} from '../../../../../common/models/additional-fee-o
 export class QuestionService {
   entry: Entry;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataEntryService) {
 
   }
 
@@ -44,7 +44,7 @@ export class QuestionService {
         key: 'StartDateDisplay',
         label: 'Tag',
         type: 'date',
-        value: DataService.formatDate(new Date(this.entry.StartDateDisplay)),
+        value: DataEntryService.formatDate(new Date(this.entry.StartDateDisplay)),
         order: 3,
       }),
 

@@ -13,14 +13,14 @@ import {BaseDataService} from './base-data-service'
   providedIn: 'root',
 })
 
-export class DataService extends BaseDataService{
+export class DataEntryService extends BaseDataService{
 
   contractsUrl = 'assets/contracts-data.json';
   projectsUrl = 'assets/projects-data.json';
   entriesUrl = 'assets/entries-data.json';
   additionalFeeOptionsUrl = 'assets/additionalfee-options.json';
   additionalFeeOptions: AdditionalFeeOption[];
-
+  dataItem: Entry;
   constructor(protected http: HttpClient) {
     super(http);
   }
@@ -47,21 +47,21 @@ export class DataService extends BaseDataService{
 
   getContracts(): Observable<Contract[]> {
     return this.http.get<Contract[]>(this.contractsUrl).pipe(
-      catchError(DataService.handleError),
+      catchError(DataEntryService.handleError),
       delay(2000)
     );
   }
 
   getProjectsByContractId(contracttId: string) {
     return this.http.get<Project[]>(this.projectsUrl).pipe( // pass the id someday
-      catchError(DataService.handleError),
+      catchError(DataEntryService.handleError),
       delay(1000)
     );
   }
 
   getEntriesByProjectId(projectId: string) {
     return this.http.get<Entry[]>(this.entriesUrl).pipe( // pass the id someday
-      catchError(DataService.handleError),
+      catchError(DataEntryService.handleError),
       delay(1000)
     );
   }

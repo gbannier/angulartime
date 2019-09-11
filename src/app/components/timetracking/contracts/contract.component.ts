@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contract} from '../../../common/models/contract.model';
-import {DataService} from '../../../common/services/data.service';
+import {DataEntryService} from '../../../common/services/data-entry.service';
 
 @Component({
   selector: 'app-contract',
@@ -10,7 +10,7 @@ import {DataService} from '../../../common/services/data.service';
 export class ContractComponent implements OnInit {
   timetracking = 'Zeiterfassung';
   contracts: Contract[] = undefined;
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataEntryService) { }
 
    ngOnInit() {
      this.dataService.getContracts().subscribe((contracts: Contract[]) => {
