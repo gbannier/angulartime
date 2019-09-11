@@ -3,6 +3,7 @@ import {FormGroup} from '@angular/forms';
 import {QuestionControlService} from '../question-control.service';
 import {QuestionBaseComponent} from '../question-base.component';
 import {BaseModel} from "../../models/base.model";
+import {BaseDataService} from "../../services/base-data-service";
 
 
 @Component({
@@ -11,12 +12,10 @@ import {BaseModel} from "../../models/base.model";
   providers: [QuestionControlService]
 })
 export class DynamicFormComponent implements OnInit {
-
-  @Input() questions: QuestionBaseComponent<any>[] = [];
-  @Output() save = new EventEmitter<BaseModel>();
-  form: FormGroup;
+  @Input() questions: QuestionBaseComponent<BaseModel>[] = [];
+  @Input() dataService: BaseDataService;
   payLoad = '';
-
+  form: FormGroup;
   constructor(private qcs: QuestionControlService) {
   }
 
@@ -26,6 +25,8 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.value);
-    this.save.emit(this.form.value);
+    this.dataService.form=this.form;
+    this.dataService.saveData();
+
   }
 }

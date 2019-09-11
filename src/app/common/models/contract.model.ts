@@ -1,6 +1,6 @@
 import {BaseModel} from './base.model';
 
-export interface Contract extends BaseModel {
+export class Contract extends BaseModel {
   CustomerName: string;
   Description: string;
   EndDateDisplay: Date;

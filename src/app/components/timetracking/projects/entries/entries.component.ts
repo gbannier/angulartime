@@ -32,12 +32,11 @@ export class EntriesComponent implements OnInit {
 
   async open(entry: Entry) {
     this.questionService.entry = entry;
-
     const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.currentData = entry; // ToDo redundant
     modalRef.componentInstance.modalHeader = 'Editiere Eintrag';
+    modalRef.componentInstance.dataService = this.dataService;
   }
-
+ // REDUNDANT
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

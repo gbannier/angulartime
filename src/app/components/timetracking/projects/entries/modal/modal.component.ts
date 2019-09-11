@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {BaseModel} from '../../../../../common/models/base.model';
 import {QuestionService} from '../form-data/question.service';
+import {BaseDataService} from "../../../../../common/services/base-data-service";
 
 @Component({
   selector: 'app-modal',
@@ -10,9 +11,10 @@ import {QuestionService} from '../form-data/question.service';
   providers: []
 })
 export class ModalComponent implements OnInit {
-  @Input() currentData: BaseModel; // ggf redundant TODO
   @Input() modalHeader: string;
+
   questions: any[];
+  dataService: BaseDataService;
 
   // TODO kann in Common
   constructor(public activeModal: NgbActiveModal, private questionService: QuestionService) {
