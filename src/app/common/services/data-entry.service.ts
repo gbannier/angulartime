@@ -68,6 +68,7 @@ export class DataEntryService extends BaseDataService{
 
   saveData(){
 
-    console.log(this.form)
+    console.log(this.form.value)
+    console.log(this.dataItem)
   }
 }
