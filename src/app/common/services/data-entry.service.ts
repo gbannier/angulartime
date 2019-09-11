@@ -21,6 +21,8 @@ export class DataEntryService extends BaseDataService{
   additionalFeeOptionsUrl = 'assets/additionalfee-options.json';
   additionalFeeOptions: AdditionalFeeOption[];
   dataItem: Entry;
+  originalContractId: string;
+  originalProjectId: string;
   constructor(protected http: HttpClient) {
     super(http);
   }
@@ -52,15 +54,16 @@ export class DataEntryService extends BaseDataService{
     );
   }
 
-  getProjectsByContractId(contracttId: string) {
-    return this.http.get<Project[]>(this.projectsUrl).pipe( // pass the id someday
+  getProjectsByContractId() {
+
+    return this.http.get<Project[]>(this.projectsUrl).pipe( // pass the originalContractId someday
       catchError(DataEntryService.handleError),
       delay(1000)
     );
   }
 
-  getEntriesByProjectId(projectId: string) {
-    return this.http.get<Entry[]>(this.entriesUrl).pipe( // pass the id someday
+  getEntriesByProjectId() {
+    return this.http.get<Entry[]>(this.entriesUrl).pipe( // pass the Originalprojectid someday
       catchError(DataEntryService.handleError),
       delay(1000)
     );

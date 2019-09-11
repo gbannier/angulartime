@@ -13,13 +13,12 @@ export class ProjectsComponent implements OnInit {
 
   projectsTitle = 'Projekte für den ausgewählten Vertrag';
   projects: Project[] = undefined;
-  contractId: string;
   constructor(private route: ActivatedRoute, private dataService: DataEntryService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.contractId = params.id;
-      this.dataService.getProjectsByContractId(this.contractId).subscribe((projects: Project[]) => {
+      this.dataService.originalContractId = params.id;
+      this.dataService.getProjectsByContractId().subscribe((projects: Project[]) => {
         this.projects = projects;
       });
     });
