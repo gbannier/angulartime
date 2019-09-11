@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {QuestionControlService} from '../question-control.service';
 import {QuestionBaseComponent} from '../question-base.component';
+import {BaseModel} from "../../models/base.model";
 
 
 @Component({
@@ -12,6 +13,7 @@ import {QuestionBaseComponent} from '../question-base.component';
 export class DynamicFormComponent implements OnInit {
 
   @Input() questions: QuestionBaseComponent<any>[] = [];
+  @Output() save = new EventEmitter<BaseModel>();
   form: FormGroup;
   payLoad = '';
 
@@ -24,5 +26,6 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.value);
+    this.save.emit(this.form.value);
   }
 }

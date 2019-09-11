@@ -14,22 +14,9 @@ import {AdditionalFeeOption} from '../../../../../common/models/additional-fee-o
 @Injectable()
 export class QuestionService {
   entry: Entry;
-  additionalFeeOptions: AdditionalFeeOption[];
+
   constructor(private dataService: DataService) {
 
-  }
-
-   static formatDate(date: Date): NgbDateStruct {
-    return {
-      year: date.getFullYear(),
-      month: date.getMonth() + 1,
-      day: date.getDay()
-    };
-  }
-
-  getOptionValue(optionId: string): AdditionalFeeOption{
-    console.log(this.additionalFeeOptions.find((option)=>  option.id==optionId))
-    return this.additionalFeeOptions.find((option)=> option.id===optionId);
   }
 
    getQuestions() {
@@ -57,14 +44,14 @@ export class QuestionService {
         key: 'StartDateDisplay',
         label: 'Tag',
         type: 'date',
-        value: QuestionService.formatDate(new Date(this.entry.StartDateDisplay)),
+        value: DataService.formatDate(new Date(this.entry.StartDateDisplay)),
         order: 3,
       }),
 
       new DropdownQuestion({
         key: 'AdditionalFeeId',
         label: 'Stundenart',
-        options: this.additionalFeeOptions,
+        options: this.dataService.additionalFeeOptions,
         value: this.entry.AdditionalFeeId,
 
         order: 4

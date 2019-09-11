@@ -25,10 +25,9 @@ export class EntriesComponent implements OnInit {
 
   async ngOnInit() {
     this.entries = await this.dataService.getEntriesByProjectId(this.projectId).toPromise();
-    this.questionService.additionalFeeOptions =
+    this.dataService.additionalFeeOptions =
         await this.dataService.getAdditionalFeeOptions().toPromise() as AdditionalFeeOption[];
-    this.entries.forEach((entry: Entry)=>entry.AdditionalFeeId=this.questionService.getOptionValue(entry.AdditionalFeeId as string));
-    console.log(this.entries);
+    this.entries.forEach((entry: Entry)=>entry.AdditionalFeeId=this.dataService.getOptionValue(entry.AdditionalFeeId as string));
   }
 
   async open(entry: Entry) {

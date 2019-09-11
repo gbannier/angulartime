@@ -7,6 +7,7 @@ import {catchError, delay, timeout} from 'rxjs/operators';
 import {Project} from '../models/project.model';
 import {Entry} from '../models/entry.model';
 import {AdditionalFeeOption} from '../models/additional-fee-option.model';
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export class DataService {
   projectsUrl = 'assets/projects-data.json';
   entriesUrl = 'assets/entries-data.json';
   additionalFeeOptionsUrl = 'assets/additionalfee-options.json';
+  additionalFeeOptions: AdditionalFeeOption[];
 
   constructor(private http: HttpClient) {
     this.http.get('assets/user.json').subscribe((user: User) => {
@@ -42,6 +44,27 @@ export class DataService {
       'Something bad happened; please try again later.');
   }
 
+
+  static formatDate(date: Date): NgbDateStruct {
+    return {
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDay()
+    };
+  }
+
+  getOptionValue(optionId: string): AdditionalFeeOption{
+    return this.additionalFeeOptions.find((option)=> option.id===optionId);
+  }
+
+
+  getAdditionalFeeOptions() {
+    return this.http.get<AdditionalFeeOption[]>(this.additionalFeeOptionsUrl).pipe(
+        catchError(DataService.handleError),
+        delay(300)
+    );
+  }
+
   getContracts(): Observable<Contract[]> {
     return this.http.get<Contract[]>(this.contractsUrl).pipe(
       catchError(DataService.handleError),
@@ -60,13 +83,6 @@ export class DataService {
     return this.http.get<Entry[]>(this.entriesUrl).pipe( // pass the id someday
       catchError(DataService.handleError),
       delay(1000)
-    );
-  }
-
-  getAdditionalFeeOptions() {
-    return this.http.get<AdditionalFeeOption[]>(this.additionalFeeOptionsUrl).pipe(
-      catchError(DataService.handleError),
-      delay(300)
     );
   }
 }
