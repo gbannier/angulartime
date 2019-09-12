@@ -90,7 +90,8 @@ export class DataEntryService extends BaseDataService {
         item.SubContractId = this.originalProjectId; // todo rename
         item.Hours = this.form.value.Hours;
         item.Description = this.form.value.Description;
-        item.AdditionalFeeId = this.form.value.AdditionalFeeId.id;
+        // item.AdditionalFeeId = this.form.value.AdditionalFeeId.id;
+        item.AdditionalFeeId = this.form.value.AdditionalFeeId;
         item.StartDateDisplay = DataEntryService.reFormatDate(this.form.value.StartDateDisplay) as string
 
         return item;
