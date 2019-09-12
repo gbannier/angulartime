@@ -10,7 +10,6 @@ import {AdditionalFeeOption} from '../../../../common/models/additional-fee-opti
   selector: 'app-entries',
   templateUrl: './entries.component.html',
   styleUrls: ['./entries.component.css'],
-  providers: []
 })
 export class EntriesComponent implements OnInit {
   @Input() projectId;
@@ -28,6 +27,7 @@ export class EntriesComponent implements OnInit {
     this.entries = await this.dataService.getEntriesByProjectId().toPromise();
     this.dataService.additionalFeeOptions =
         await this.dataService.getAdditionalFeeOptions().toPromise() as AdditionalFeeOption[];
+    // make objects with id and value (value isnt a propper name, better will be "name" oder "displayName"
     this.entries.forEach((entry: Entry)=>entry.AdditionalFeeId=this.dataService.getOptionValue(entry.AdditionalFeeId as string));
   }
 

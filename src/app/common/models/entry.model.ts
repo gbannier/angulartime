@@ -9,5 +9,6 @@ export class Entry extends BaseModel {
   StartDateDisplay: Date | string;
   UserId: string;
   SubContractId: string;
+  // not the best approuch, alternativle we could add a temp property
   AdditionalFeeId: string | AdditionalFeeOption;
 }

@@ -52,7 +52,8 @@ export class QuestionService {
         key: 'AdditionalFeeId',
         label: 'Stundenart',
         options: this.dataService.additionalFeeOptions,
-        value: this.entry.AdditionalFeeId,
+        // not the best approuch, alternativle we could add a temp property
+        value: (this.entry.AdditionalFeeId as AdditionalFeeOption).id,
 
         order: 4
       }),
