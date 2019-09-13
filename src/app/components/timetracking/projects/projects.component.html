@@ -1,6 +1,7 @@
 <div class="container">
   <h1>{{projectsTitle}}</h1>
   <div *ngIf="!projects" class="spinner-grow text-muted"></div>
+  <app-date-range-filter></app-date-range-filter>
   <ngb-accordion *ngIf="projects" #a="ngbAccordion" activeIds="custom-panel-1">
     <ngb-panel *ngFor="let project of projects">
       <ng-template ngbPanelHeader>

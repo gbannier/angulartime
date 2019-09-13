@@ -10,6 +10,7 @@ import {ModalComponent} from './projects/entries/modal/modal.component';
 import {DynamicFormComponent} from '../../common/reactive-form/dynamic-form/dynamic-form.component';
 import {DynamicFormQuestionComponent} from '../../common/reactive-form/dynamic-form-question/dynamic-form-question.component';
 import {QuestionService} from './projects/entries/form-data/question.service';
+import {DateRangeFilterComponent} from "./projects/date-range-filter/date-range-filter.component";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {QuestionService} from './projects/entries/form-data/question.service';
     EntriesComponent,
     ModalComponent,
     DynamicFormComponent,
-    DynamicFormQuestionComponent
+    DynamicFormQuestionComponent,
+    DateRangeFilterComponent
   ],
   imports: [
     CommonModule,
