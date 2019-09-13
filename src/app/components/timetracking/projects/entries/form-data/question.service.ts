@@ -1,12 +1,10 @@
 import {Injectable} from '@angular/core';
 import {QuestionBaseComponent} from '../../../../../common/reactive-form/question-base.component';
 import {DropdownQuestion} from '../../../../../common/reactive-form/dropdown-question';
-import {TextboxQuestion} from '../../../../../common/reactive-form/textbox-question';
 import {Entry} from '../../../../../common/models/entry.model';
 import {TextareaQuestion} from '../../../../../common/reactive-form/textarea-question';
 import {NumberQuestion} from '../../../../../common/reactive-form/number-question';
 import {DateQuestion} from '../../../../../common/reactive-form/date-question';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {DataEntryService} from '../../../../../common/services/data-entry.service';
 import {AdditionalFeeOption} from '../../../../../common/models/additional-fee-option.model';
 
@@ -54,7 +52,6 @@ export class QuestionService {
         options: this.dataService.additionalFeeOptions,
         // not the best approuch, alternativle we could add a temp property
         value: (this.entry.AdditionalFeeId as AdditionalFeeOption).id,
-
         order: 4
       }),
     ];

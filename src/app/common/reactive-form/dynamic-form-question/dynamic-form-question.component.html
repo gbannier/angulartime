@@ -15,7 +15,7 @@
 
     <textarea class="form-control" [id]="question.key" *ngSwitchCase="'textarea'" [formControlName]="question.key"></textarea>
     <div class="input-group" *ngSwitchCase="'date'">
-        <input class="form-control" [id]="question.key"  [formControlName]="question.key" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+        <input class="form-control" [id]="question.key"  [formControlName]="question.key" placeholder="dd.mm.yyyy" name="dp" ngbDatepicker #dp="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"><i class="fa fa-calendar"></i></button>
         </div>

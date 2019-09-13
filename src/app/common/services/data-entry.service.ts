@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {User} from '../models/user.model';
+import {HttpClient} from '@angular/common/http';
 import {Contract} from '../models/contract.model';
-import {Observable, throwError} from 'rxjs';
-import {catchError, delay, timeout} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {catchError, delay} from 'rxjs/operators';
 import {Project} from '../models/project.model';
 import {Entry} from '../models/entry.model';
 import {AdditionalFeeOption} from '../models/additional-fee-option.model';
@@ -28,7 +27,7 @@ export class DataEntryService extends BaseDataService {
     constructor(protected http: HttpClient) {
         super(http);
     }
-
+    // todo may copy to utilities
     static formatDate(date: Date): NgbDateStruct {
         return {
             year: date.getFullYear(),
@@ -37,7 +36,7 @@ export class DataEntryService extends BaseDataService {
         };
     }
 
-    static reFormatDate(ngDate: NgbDateStruct) {
+    static reFormatDate(ngDate: NgbDateStruct): string {
         let date = new Date(ngDate.year, ngDate.month - 1, ngDate.day);
         return date.toISOString();
     }
@@ -92,7 +91,7 @@ export class DataEntryService extends BaseDataService {
         item.Description = this.form.value.Description;
         // item.AdditionalFeeId = this.form.value.AdditionalFeeId.id;
         item.AdditionalFeeId = this.form.value.AdditionalFeeId;
-        item.StartDateDisplay = DataEntryService.reFormatDate(this.form.value.StartDateDisplay) as string
+        item.StartDateDisplay = DataEntryService.reFormatDate(this.form.value.StartDateDisplay) as string;
 
         return item;
     }
