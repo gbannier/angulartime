@@ -14,6 +14,7 @@ import {AdditionalFeeOption} from '../../../../common/models/additional-fee-opti
 export class EntriesComponent implements OnInit {
   @Input() projectId;
   entries: Entry[];
+  showEntries: boolean= false;
   closeResult: string;
 
   constructor(
@@ -29,9 +30,10 @@ export class EntriesComponent implements OnInit {
         await this.dataService.getAdditionalFeeOptions().toPromise() as AdditionalFeeOption[];
     // make objects with id and value (value isnt a propper name, better will be "name" oder "displayName"
     this.entries.forEach((entry: Entry)=>entry.AdditionalFeeId=this.dataService.getOptionValue(entry.AdditionalFeeId as string));
+    this.showEntries=true;
   }
 
-  async open(entry: Entry) {
+   open(entry: Entry) {
     this.questionService.entry = entry;
     this.dataService.dataItem = entry;
     const modalRef = this.modalService.open(ModalComponent);
