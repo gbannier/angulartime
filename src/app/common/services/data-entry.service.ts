@@ -27,7 +27,7 @@ export class DataEntryService extends BaseDataService {
     constructor(protected http: HttpClient) {
         super(http);
     }
-    // todo may copy to utilities
+    // todo may copy to utilities; if you like do it with moments.js
     static formatDate(date: Date): NgbDateStruct {
         return {
             year: date.getFullYear(),

@@ -33,11 +33,12 @@ export class EntriesComponent implements OnInit {
     this.showEntries=true;
   }
 
-   open(entry: Entry) {
-    this.questionService.entry = entry;
-    this.dataService.dataItem = entry;
+   open(entry?: Entry) {
+    let item=entry? entry : this.buildNewEntry();
+    this.questionService.entry = item;
+    this.dataService.dataItem = item;
     const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.modalHeader = 'Editiere Eintrag';
+    modalRef.componentInstance.modalHeader = entry? 'Editiere Eintrag': 'Neuere Eintrag';
     modalRef.componentInstance.dataService = this.dataService;
   }
  // REDUNDANT
@@ -49,6 +50,14 @@ export class EntriesComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+  private buildNewEntry(): Entry{
+    let entry = new Entry();
+    let date=new Date();
+    date.setUTCHours(0,0,0,0);
+    entry.StartDateDisplay=date.toISOString();
+    entry.AdditionalFeeId=this.dataService.additionalFeeOptions.find((option) => option.value === 'Normal'); // we need a config
+    return entry;
   }
 
 }

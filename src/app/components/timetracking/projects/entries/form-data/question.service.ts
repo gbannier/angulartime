@@ -34,6 +34,7 @@ export class QuestionService {
         key: 'Hours',
         label: 'Anzahl Stunden',
         type: 'number',
+        required: true,
         value: this.entry.Hours,
         order: 2,
       }),

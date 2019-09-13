@@ -31,7 +31,8 @@ registerLocaleData(localeDeCh);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-CH'},
-    DataEntryService, {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}
+    DataEntryService,
+    {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter}
   ],
   bootstrap: [AppComponent]
 })
