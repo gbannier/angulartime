@@ -1,4 +1,18 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">GHR</a>
+
+    <ul class="nav navbar-nav navbar-right">
+        <div *ngFor="let language of languageList">
+            <li><a href="/{{language.code}}/">
+                <span [class]="'flag-icon flag-icon-'+language.label"></span></a>
+            </li>
+        </div>
+    </ul>
+
+</nav>
+
 <div class="container">
-  <h1>{{title}}</h1>
+    <h1 i18n>Zeiterfassung</h1>
 </div>
+
 <router-outlet></router-outlet>

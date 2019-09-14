@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {DataEntryService} from './common/services/data-entry.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,9 @@ import {DataEntryService} from './common/services/data-entry.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Zeiterfassung';
+
+  languageList = [
+    {code: 'de', label: 'de'},
+    {code: 'en', label: 'gb'}
+  ];
 }

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xilf version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de-CH" datatype="plaintext" original="ng2.template">
+        <body>
+            <trans-unit id="ngb.alert.close" datatype="html">
+                <source>Close</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/alert/alert.d.ts
+                    </context>
+                    <context context-type="linenumber">3</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.carousel.previous" datatype="html">
+                <source>Previous</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts
+                    </context>
+                    <context context-type="linenumber">13</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.carousel.next" datatype="html">
+                <source>Next</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts
+                    </context>
+                    <context context-type="linenumber">17</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.datepicker.previous-month" datatype="html">
+                <source>Previous month</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts
+                    </context>
+                    <context context-type="linenumber">4</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts
+                    </context>
+                    <context context-type="linenumber">5</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.datepicker.next-month" datatype="html">
+                <source>Next month</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts
+                    </context>
+                    <context context-type="linenumber">26</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts
+                    </context>
+                    <context context-type="linenumber">27</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.datepicker.select-month" datatype="html">
+                <source>Select month</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts
+                    </context>
+                    <context context-type="linenumber">6</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts
+                    </context>
+                    <context context-type="linenumber">7</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.datepicker.select-year" datatype="html">
+                <source>Select year</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts
+                    </context>
+                    <context context-type="linenumber">15</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts
+                    </context>
+                    <context context-type="linenumber">16</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.first" datatype="html">
+                <source>««</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">2</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.previous" datatype="html">
+                <source>«</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">3</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.next" datatype="html">
+                <source>»</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">4</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.last" datatype="html">
+                <source>»»</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">5</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.first-aria" datatype="html">
+                <source>First</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">14</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+                <source>Previous</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">23</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.next-aria" datatype="html">
+                <source>Next</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">41</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.pagination.last-aria" datatype="html">
+                <source>Last</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts
+                    </context>
+                    <context context-type="linenumber">49</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.progressbar.value" datatype="html">
+                <source><x id="INTERPOLATION" equiv-text="{{getPercentValue()}}"/>%
+                </source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/progressbar/progressbar.d.ts
+                    </context>
+                    <context context-type="linenumber">6</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.increment-hours" datatype="html">
+                <source>Increment hours</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">9</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.HH" datatype="html">
+                <source>HH</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">12</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.hours" datatype="html">
+                <source>Hours</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">14</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.decrement-hours" datatype="html">
+                <source>Decrement hours</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">21</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.increment-minutes" datatype="html">
+                <source>Increment minutes</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">30</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.MM" datatype="html">
+                <source>MM</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">33</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.minutes" datatype="html">
+                <source>Minutes</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">35</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.decrement-minutes" datatype="html">
+                <source>Decrement minutes</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">42</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.increment-seconds" datatype="html">
+                <source>Increment seconds</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">51</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.SS" datatype="html">
+                <source>SS</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">54</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.seconds" datatype="html">
+                <source>Seconds</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">56</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.decrement-seconds" datatype="html">
+                <source>Decrement seconds</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">63</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.PM" datatype="html">
+                <source>
+                    <x id="INTERPOLATION" equiv-text="{{ i18n.getAfternoonPeriod() }}"/>
+                </source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">71</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.timepicker.AM" datatype="html">
+                <source>
+                    <x id="INTERPOLATION" equiv-text="{{ i18n.getMorningPeriod() }}"/>
+                </source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts
+                    </context>
+                    <context context-type="linenumber">72</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ngb.toast.close-aria" datatype="html">
+                <source>Close</source>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">node_modules/@ng-bootstrap/ng-bootstrap/toast/toast.d.ts
+                    </context>
+                    <context context-type="linenumber">8</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="97c5ce6ba91397715b3d50eecc97b87b041dd090" datatype="html">
+                <source>Kunde</source>
+                <target>Kunde</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/contracts/contract.component.html
+                    </context>
+                    <context context-type="linenumber">6</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="f09ad66c1ebf16217ba1a1072be7a98de2d95eac" datatype="html">
+                <source>Beschreibung</source>
+                <target>Beschreibung</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/contracts/contract.component.html
+                    </context>
+                    <context context-type="linenumber">7</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/entries/entries.component.html
+                    </context>
+                    <context context-type="linenumber">6</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="7f84d943cbb35d2c6ca964218fdf515977380503" datatype="html">
+                <source>Von</source>
+                <target>Von</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/contracts/contract.component.html
+                    </context>
+                    <context context-type="linenumber">8</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="dee723f876f4c55bcacf3b0dac28179863d3099f" datatype="html">
+                <source>Bis</source>
+                <target>Bis</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/contracts/contract.component.html
+                    </context>
+                    <context context-type="linenumber">9</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="50d1fb00e41df2cc8bc173f9e575bd31640fc11c" datatype="html">
+                <source>Zeiterfassung</source>
+                <target>Zeiterfassung</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">src/app/app.component.html</context>
+                    <context context-type="linenumber">9</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="62e81575ed9e9b64810b242b46f44b10a8de6f30" datatype="html">
+                <source>Projekte für den ausgewählten Vertrag</source>
+                <target>Projekte für den ausgewählten Vertrag</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/projects.component.html
+                    </context>
+                    <context context-type="linenumber">2</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="3c6d4a2efc21c1227aba9ad8e320c84bd824d65a" datatype="html">
+                <source>Schliessen</source>
+                <target>Schliessen</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/entries/modal/modal.component.html
+                    </context>
+                    <context context-type="linenumber">12</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="1470eabded471793a7ef2271e2a1dc30a1a3265f" datatype="html">
+                <source>Datum</source>
+                <target>Datum</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/entries/entries.component.html
+                    </context>
+                    <context context-type="linenumber">7</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="2a3fb5b47544522a55d7c4756192922fbcf13f80" datatype="html">
+                <source>Stunden</source>
+                <target>Stunden</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/entries/entries.component.html
+                    </context>
+                    <context context-type="linenumber">8</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="6117ba5016400cfec01f5fcdd7ad008657ee2aac" datatype="html">
+                <source>Zuschlag</source>
+                <target>Zuschlag</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/entries/entries.component.html
+                    </context>
+                    <context context-type="linenumber">9</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="3b4107f2e791a1300e5fbb824b0f0e85ce03d378" datatype="html">
+                <source>Anfang:</source>
+                <target>Anfang:</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/date-range-filter/date-range-filter.component.html
+                    </context>
+                    <context context-type="linenumber">4</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="7c612eb5c5b8b7eb831217ce567e80a9faf268bc" datatype="html">
+                <source>Ende:</source>
+                <target>Ende:</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">
+                        src/app/components/timetracking/projects/date-range-filter/date-range-filter.component.html
+                    </context>
+                    <context context-type="linenumber">16</context>
+                </context-group>
+            </trans-unit>
+        </body>
+    </file>
+</xilf>

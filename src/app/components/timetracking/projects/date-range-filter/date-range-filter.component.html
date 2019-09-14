@@ -1,7 +1,7 @@
 <form>
     <div class="row">
         <div class="form-group p-3">
-            <label for="sd">Anfang:</label>
+            <label for="sd" i18n>Anfang:</label>
             <div class="form-inline">
                 <input #dsd="ngbDatepicker" (dateSelect)="changeDate($event,'start')" [(ngModel)]="startDate"
                        class="form-control" id="sd" name="dpSd" ngbDatepicker
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="form-group p-3">
-            <label for="ed">Ende:</label>
+            <label for="ed" i18n>Ende:</label>
             <div class="form-inline">
                 <input #ded="ngbDatepicker" (dateSelect)="changeDate($event, 'end')" [(ngModel)]="endDate"
                        [disabled]="disabled" class="form-control" id="ed" name="dp" ngbDatepicker

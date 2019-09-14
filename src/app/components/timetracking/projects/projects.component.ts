@@ -9,7 +9,6 @@ import {DataEntryService} from '../../../common/services/data-entry.service';
     styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
-    projectsTitle = 'Projekte für den ausgewählten Vertrag';
     projects: Project[] = null;
     private subscription: any;
 

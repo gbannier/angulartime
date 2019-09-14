@@ -28,11 +28,30 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
               "./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/flag-icon-css/css/flag-icon.min.css"
             ],
             "scripts": []
           },
           "configurations": {
+            "de": {
+              "aot": true,
+              "outputPath": "dist/de/",
+              "i18nFile": "src/locale/messages.de.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "de-CH",
+              "i18nMissingTranslation": "ignore",
+              "baseHref": "/de/"
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/en/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en-US",
+              "i18nMissingTranslation": "ignore",
+              "baseHref": "/en/"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -65,6 +84,12 @@
             "browserTarget": "auffrischung:build"
           },
           "configurations": {
+            "en": {
+              "browserTarget": "auffrischung:build:en"
+            },
+            "de": {
+              "browserTarget": "auffrischung:build:de"
+            },
             "production": {
               "browserTarget": "auffrischung:build:production"
             }

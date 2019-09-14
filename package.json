@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-en": "ng serve --configuration=en",
+    "start-de": "ng serve --configuration=de",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,6 +25,7 @@
     "acorn": "^6.0.5",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
     "rxjs": "^6.5.2",
     "tslib": "^1.9.0",

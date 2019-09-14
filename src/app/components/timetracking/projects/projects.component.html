@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>{{projectsTitle}}</h1>
+  <h1 i18n>Projekte für den ausgewählten Vertrag</h1>
   <div *ngIf="!projects" class="spinner-grow text-muted"></div>
   <app-date-range-filter (loadFilteredEntries)="loadFilteredEntries()" *ngIf="projects"></app-date-range-filter>
   <ngb-accordion #a="ngbAccordion" *ngIf="projects" [destroyOnHide]="true" activeIds="custom-panel-1">
