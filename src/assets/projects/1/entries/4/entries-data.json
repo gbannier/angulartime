@@ -1,0 +1,34 @@
+[{
+  "id": "a",
+  "ContractId": "1",
+  "Description": "Neue Website",
+  "StartDateDisplay": "2019-01-01",
+  "EndDateDisplay": "2019-01-01",
+  "Hours": 8,
+  "UserId": "aaaaa",
+  "SubContractId": "4",
+  "AdditionalFeeId": "ssssss"
+},
+  {
+    "id": "b",
+    "ContractId": "1",
+    "Description": "Neue Website",
+    "StartDateDisplay": "2019-01-02",
+    "EndDateDisplay": "2019-01-02",
+    "Hours": 8,
+    "UserId": "aaaaa",
+    "SubContractId": "4",
+    "AdditionalFeeId": "ssssss"
+  },
+  {
+    "id": "c",
+    "ContractId": "1",
+    "Description": "Neue Website",
+    "StartDateDisplay": "2019-01-03",
+    "EndDateDisplay": "2019-01-03",
+    "Hours": 8,
+    "UserId": "aaaaa",
+    "SubContractId": "4",
+    "AdditionalFeeId": "ssssss"
+  }
+]

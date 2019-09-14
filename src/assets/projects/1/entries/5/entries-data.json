@@ -1,0 +1,34 @@
+[{
+  "id": "d",
+  "ContractId": "1",
+  "Description": "Entwicklung",
+  "StartDateDisplay": "2019-01-01",
+  "EndDateDisplay": "2019-01-01",
+  "Hours": 8,
+  "UserId": "aaaaa",
+  "SubContractId": "5",
+  "AdditionalFeeId": "ssssss"
+},
+  {
+    "id": "e",
+    "ContractId": "1",
+    "Description": "Entwicklung",
+    "StartDateDisplay": "2019-01-02",
+    "EndDateDisplay": "2019-01-02",
+    "Hours": 8,
+    "UserId": "aaaaa",
+    "SubContractId": "5",
+    "AdditionalFeeId": "ssssss"
+  },
+  {
+    "id": "f",
+    "ContractId": "1",
+    "Description": "Entwicklung",
+    "StartDateDisplay": "2019-01-03",
+    "EndDateDisplay": "2019-01-03",
+    "Hours": 8,
+    "UserId": "aaaaa",
+    "SubContractId": "5",
+    "AdditionalFeeId": "ssssss"
+  }
+]

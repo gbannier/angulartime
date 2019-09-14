@@ -1,13 +1,13 @@
 [{
-  "id": "99999",
+  "id": "4",
   "Description": "Frontend"
 },
   {
-    "id": "00000",
+    "id": "5",
     "Description": "Backend"
   },
   {
-    "id": "78987",
+    "id": "6",
     "Description": "Datenbank"
   }
 ]

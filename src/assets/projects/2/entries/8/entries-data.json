@@ -1,34 +1,34 @@
 [{
-  "id": "xxxxxxx",
-  "ContractId": "dfdjgfkgk",
-  "Description": "Neue Website",
+  "id": "2d",
+  "ContractId": "2",
+  "Description": "Model",
   "StartDateDisplay": "2019-01-01",
   "EndDateDisplay": "2019-01-01",
   "Hours": 8,
   "UserId": "aaaaa",
-  "SubContractId": "qwetz",
+  "SubContractId": "8",
   "AdditionalFeeId": "ssssss"
 },
   {
-    "id": "ppppppppp",
-    "ContractId": "dfdjgfkgk",
-    "Description": "Neue Webseite für Peter Pansen",
+    "id": "2e",
+    "ContractId": "2",
+    "Description": "Model",
     "StartDateDisplay": "2019-01-02",
     "EndDateDisplay": "2019-01-02",
     "Hours": 8,
     "UserId": "aaaaa",
-    "SubContractId": "qwetz",
+    "SubContractId": "8",
     "AdditionalFeeId": "ssssss"
   },
   {
-    "id": "pppppp",
-    "ContractId": "dfdjgfkgk",
-    "Description": "A5656765",
+    "id": "2f",
+    "ContractId": "2",
+    "Description": "Model",
     "StartDateDisplay": "2019-01-03",
     "EndDateDisplay": "2019-01-03",
     "Hours": 8,
     "UserId": "aaaaa",
-    "SubContractId": "qwetz",
+    "SubContractId": "8",
     "AdditionalFeeId": "ssssss"
   }
 ]
