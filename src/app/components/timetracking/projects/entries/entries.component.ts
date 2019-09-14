@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DataEntryService} from '../../../../common/services/data-entry.service';
 import {Entry} from '../../../../common/models/entry.model';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +11,7 @@ import {AdditionalFeeOption} from '../../../../common/models/additional-fee-opti
     templateUrl: './entries.component.html',
     styleUrls: ['./entries.component.css'],
 })
-export class EntriesComponent implements OnInit {
+export class EntriesComponent implements OnInit, OnDestroy {
     @Input() projectId;
     @Input() index;
 
@@ -38,6 +38,16 @@ export class EntriesComponent implements OnInit {
         this.showEntries = true;
     }
 
+    ngOnDestroy(): void {
+
+        this.dataService.originalProjectIds.length === 1
+            ? this.dataService.originalProjectIds = []
+            : this.dataService.originalProjectIds.splice(this.index, 1);
+        this.dataService.entries.length === 1
+            ? this.dataService.entries = []
+            : this.dataService.entries.splice(this.index, 1);
+    }
+
     open(entry?: Entry) {
         let item = entry ? entry : this.buildNewEntry();
         this.questionService.entry = item;
@@ -46,10 +56,6 @@ export class EntriesComponent implements OnInit {
         modalRef.componentInstance.modalHeader = entry ? 'Editiere Eintrag' : 'Neuere Eintrag';
         modalRef.componentInstance.dataService = this.dataService;
         modalRef.componentInstance.index = this.index;
-    }
-
-    async reloadEntries() {
-        this.dataService.entries[this.index] = await this.dataService.getEntriesByProjectId(this.index).toPromise();
     }
 
     // REDUNDANT

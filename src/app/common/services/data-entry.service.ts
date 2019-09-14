@@ -30,6 +30,7 @@ export class DataEntryService extends BaseDataService {
     constructor(protected http: HttpClient) {
         super(http);
     }
+
     // todo may copy to utilities; if you like do it with moments.js
     static formatDate(date: Date): NgbDateStruct {
         return {
@@ -40,8 +41,11 @@ export class DataEntryService extends BaseDataService {
     }
 
     static reFormatDate(ngDate: NgbDateStruct): string {
-        let date = new Date(ngDate.year, ngDate.month - 1, ngDate.day);
-        return date.toISOString();
+        if (ngDate) {
+            let date = new Date(ngDate.year, ngDate.month - 1, ngDate.day);
+            return date.toISOString();
+        }
+        return null;
     }
 
     getOptionValue(optionId: string): AdditionalFeeOption {
@@ -71,6 +75,10 @@ export class DataEntryService extends BaseDataService {
     }
 
     getEntriesByProjectId(i: number) {
+        // console.log(i, 'index');
+        // console.log(this.originalProjectIds, 'index');
+        // console.log(DataEntryService.reFormatDate(this.startDate) as string);
+        // console.log(DataEntryService.reFormatDate(this.endDate) as string);
         return this.http.get<Entry[]>(this.entriesUrl + this.originalContractId
             + '/entries/' + this.originalProjectIds[i] + '/entries-data.json').pipe(
             catchError(DataEntryService.handleError),

@@ -2,7 +2,7 @@
   <h1>{{projectsTitle}}</h1>
   <div *ngIf="!projects" class="spinner-grow text-muted"></div>
   <app-date-range-filter (loadFilteredEntries)="loadFilteredEntries()" *ngIf="projects"></app-date-range-filter>
-  <ngb-accordion *ngIf="projects" #a="ngbAccordion" activeIds="custom-panel-1">
+  <ngb-accordion #a="ngbAccordion" *ngIf="projects" [destroyOnHide]="true" activeIds="custom-panel-1">
     <ngb-panel *ngFor="let project of projects;index as i">
       <ng-template ngbPanelHeader>
         <div class="d-flex align-items-center justify-content-between">
@@ -13,7 +13,7 @@
         </div>
       </ng-template>
       <ng-template ngbPanelContent>
-        <app-entries #entries [index]="i" [projectId]="project.id"></app-entries>
+        <app-entries [index]="i" [projectId]="project.id"></app-entries>
       </ng-template>
     </ngb-panel>
   </ngb-accordion>

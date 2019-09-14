@@ -1,8 +1,7 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Project} from '../../../common/models/project.model';
 import {DataEntryService} from '../../../common/services/data-entry.service';
-import {EntriesComponent} from "./entries/entries.component";
 
 @Component({
     selector: 'app-projects',
@@ -10,7 +9,6 @@ import {EntriesComponent} from "./entries/entries.component";
     styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
-    @ViewChild('entries', {static: false}) entriesComponent: EntriesComponent;
     projectsTitle = 'Projekte für den ausgewählten Vertrag';
     projects: Project[] = null;
     private subscription: any;
@@ -30,9 +28,13 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         });
     }
 
-    loadFilteredEntries() {
-        console.log('ghghg');
-        // this.entriesComponent.reloadEntries();
+    async loadFilteredEntries() {
+        this.dataService.entries = [];
+        for (let i = 0; i < this.dataService.originalProjectIds.length; i++) {
+            if (this.dataService.originalProjectIds[i]) {
+                this.dataService.entries[i] = await this.dataService.getEntriesByProjectId(i).toPromise();
+            }
+        }
     }
 
     ngOnDestroy(): void {
