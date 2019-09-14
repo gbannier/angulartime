@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {BaseModel} from '../../../../../common/models/base.model';
 import {QuestionService} from '../form-data/question.service';
 import {BaseDataService} from "../../../../../common/services/base-data-service";
 
@@ -15,6 +14,7 @@ export class ModalComponent implements OnInit {
 
   questions: any[];
   dataService: BaseDataService;
+  index: number;
 
   // TODO kann in Common
   constructor(public activeModal: NgbActiveModal, private questionService: QuestionService) {

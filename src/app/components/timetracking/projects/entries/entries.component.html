@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let entry of entries; index as i">
+    <tr *ngFor="let entry of entries[index]; index as i">
         <td>{{ entry.Description }}</td>
         <td>{{ entry.StartDateDisplay | date }}</td>
         <td>{{ entry.Hours}}</td>
@@ -18,7 +18,8 @@
         <td><button class="btn btn-sm btn-outline-primary ml-2" (click)="open(entry)">Edit</button></td>
       </tr>
     </tbody>
+      <button (click)="open()" class="btn btn-sm btn-outline-primary ml-2">Neu</button>
   </table>
-  <td><button class="btn btn-sm btn-outline-primary ml-2" (click)="open()">Neu</button></td>
+
 </div>
 <hr>

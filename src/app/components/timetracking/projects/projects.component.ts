@@ -1,26 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {Project} from '../../../common/models/project.model';
 import {DataEntryService} from '../../../common/services/data-entry.service';
-import {Contract} from '../../../common/models/contract.model';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EntriesComponent} from "./entries/entries.component";
+
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
+    @ViewChild('entries', {static: false}) entriesComponent: EntriesComponent;
+    projectsTitle = 'Projekte für den ausgewählten Vertrag';
+    projects: Project[] = null;
+    private subscription: any;
 
-  projectsTitle = 'Projekte für den ausgewählten Vertrag';
-  projects: Project[] = undefined;
-  constructor(private route: ActivatedRoute, private dataService: DataEntryService) { }
+    constructor(private route: ActivatedRoute, private dataService: DataEntryService) {
+    }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.dataService.originalContractId = params.id;
-      this.dataService.getProjectsByContractId().subscribe((projects: Project[]) => {
-        this.projects = projects;
-      });
-    });
-  }
+    ngOnInit() {
+        this.subscription = this.route.params.subscribe(params => {
+            this.projects = null;
+            this.dataService.entries = [];
+            this.dataService.originalProjectIds = [];
+            this.dataService.originalContractId = params.id;
+            this.dataService.getProjectsByContractId().subscribe((projects: Project[]) => {
+                this.projects = projects;
+            });
+        });
+    }
+
+    loadFilteredEntries() {
+        console.log('ghghg');
+        // this.entriesComponent.reloadEntries();
+    }
+
+    ngOnDestroy(): void {
+        this.projects = null;
+        this.dataService.originalContractId = null;
+        this.subscription.unsubscribe();
+    }
+
 }

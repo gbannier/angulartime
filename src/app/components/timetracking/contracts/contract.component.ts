@@ -10,11 +10,13 @@ import {DataEntryService} from '../../../common/services/data-entry.service';
 export class ContractComponent implements OnInit {
   timetracking = 'Zeiterfassung';
   contracts: Contract[] = undefined;
-  constructor(private dataService: DataEntryService) { }
 
-   ngOnInit() {
-     this.dataService.getContracts().subscribe((contracts: Contract[]) => {
-       this.contracts = contracts;
-     });
+  constructor(private dataService: DataEntryService) {
+  }
+
+  ngOnInit() {
+    this.dataService.getContracts().subscribe((contracts: Contract[]) => {
+      this.contracts = contracts;
+    });
   }
 }

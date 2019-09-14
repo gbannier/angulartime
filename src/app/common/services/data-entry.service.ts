@@ -16,13 +16,16 @@ import {BaseDataService} from './base-data-service'
 export class DataEntryService extends BaseDataService {
 
     contractsUrl = 'assets/contracts-data.json';
-    projectsUrl = 'assets/projects-data.json';
-    entriesUrl = 'assets/entries-data.json';
+    projectsUrl = 'assets/projects/';
+    entriesUrl = 'assets/projects/';
     additionalFeeOptionsUrl = 'assets/additionalfee-options.json';
     additionalFeeOptions: AdditionalFeeOption[];
     dataItem: Entry;
     originalContractId: string;
-    originalProjectId: string;
+    originalProjectIds: string[] = [];
+    startDate: NgbDateStruct;
+    endDate: NgbDateStruct;
+    entries: Entry[][] = [];
 
     constructor(protected http: HttpClient) {
         super(http);
@@ -61,32 +64,32 @@ export class DataEntryService extends BaseDataService {
     }
 
     getProjectsByContractId() {
+        return this.http.get<Project[]>(this.projectsUrl + this.originalContractId + '/projects-data.json').pipe(
+            catchError(DataEntryService.handleError),
+            delay(1500)
+        );
+    }
 
-        return this.http.get<Project[]>(this.projectsUrl).pipe( // pass the originalContractId someday
+    getEntriesByProjectId(i: number) {
+        return this.http.get<Entry[]>(this.entriesUrl + this.originalContractId
+            + '/entries/' + this.originalProjectIds[i] + '/entries-data.json').pipe(
             catchError(DataEntryService.handleError),
             delay(1000)
         );
     }
 
-    getEntriesByProjectId() {
-        return this.http.get<Entry[]>(this.entriesUrl).pipe( // pass the Originalprojectid someday
-            catchError(DataEntryService.handleError),
-            delay(1000)
-        );
-    }
-
-    saveData() {
-        console.log(JSON.stringify(this.buildEntryData()));
+    saveData(index) {
+        console.log(JSON.stringify(this.buildEntryData(index)));
         // this.http.post('my-url',this.buildEntryData() )
     }
 
 
-    private buildEntryData() {
+    private buildEntryData(index) {
         let item = new Entry();
         item.id = this.dataItem.id;
         item.UserId = this.userId;
         item.ContractId = this.originalContractId;
-        item.SubContractId = this.originalProjectId; // todo rename
+        item.SubContractId = this.originalProjectIds[index]; // todo rename
         item.Hours = this.form.value.Hours;
         item.Description = this.form.value.Description;
         // item.AdditionalFeeId = this.form.value.AdditionalFeeId.id;
