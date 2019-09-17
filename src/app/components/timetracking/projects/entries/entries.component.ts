@@ -30,7 +30,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     async ngOnInit() {
         this.dataService.originalProjectIds[this.index] = this.projectId;
-        this.dataService.entries[this.index] = await this.dataService.getEntriesByProjectId(this.index).toPromise();
+        this.dataService.entries[this.index] = await this.dataService.getEntriesByProjectIds(this.index).toPromise();
         this.dataService.additionalFeeOptions =
             await this.dataService.getAdditionalFeeOptions().toPromise() as AdditionalFeeOption[];
         // make objects with id and value (value isnt a propper name, better will be "name" oder "displayName"

@@ -3,8 +3,8 @@
 
   <div [ngSwitch]="question.controlType">
 
-    <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key"
-           [id]="question.key" [type]="question['type']">
+      <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key"
+             [type]="question['type']" class="form-control required">
 
     <input class="form-control" *ngSwitchCase="'number'" [formControlName]="question.key"
            [id]="question.key" [type]="question['type']">
@@ -24,6 +24,6 @@
     </div>
   </div>
 
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+    <div *ngIf="!isValid" class="alert alert-warning" role="alert">{{question.label}} is required</div>
 </div>
 

@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Project} from '../../../common/models/project.model';
 import {DataEntryService} from '../../../common/services/data-entry.service';
+import {FilterType} from "../../../common/enums/filter-type.enum";
+import {Entry} from "../../../common/models/entry.model";
 
 @Component({
     selector: 'app-projects',
@@ -27,11 +29,12 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         });
     }
 
-    async loadFilteredEntries() {
+    async loadFilteredEntries(filterType: FilterType) {
         this.dataService.entries = [];
         for (let i = 0; i < this.dataService.originalProjectIds.length; i++) {
             if (this.dataService.originalProjectIds[i]) {
-                this.dataService.entries[i] = await this.dataService.getEntriesByProjectId(i).toPromise();
+                this.dataService.entries[i] = await this.dataService.getEntriesByProjectIds(i).toPromise();
+                this.dataService.entries[i].forEach((entry: Entry) => entry.AdditionalFeeId = this.dataService.getOptionValue(entry.AdditionalFeeId as string));
             }
         }
     }

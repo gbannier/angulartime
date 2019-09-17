@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DataEntryService} from "../../../../common/services/data-entry.service";
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
+import {FilterType} from "../../../../common/enums/filter-type.enum";
 
 @Component({
     selector: 'app-date-range-filter',
@@ -8,7 +9,7 @@ import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
     styleUrls: ['./date-range-filter.component.css']
 })
 export class DateRangeFilterComponent implements OnInit {
-    @Output() loadFilteredEntries = new EventEmitter()
+    @Output() loadFilteredEntries = new EventEmitter<FilterType>();
 
     constructor(private dataService: DataEntryService) {
     }
@@ -45,7 +46,7 @@ export class DateRangeFilterComponent implements OnInit {
         if (type === "end") {
             this.dataService.endDate = date;
         }
-        this.loadFilteredEntries.emit()
+        this.loadFilteredEntries.emit(FilterType.DateRange);
     }
 }
 

@@ -1,0 +1,9 @@
+<div class="form-group p-3">
+    <label for="dropdown" i18n>Auswählen:</label>
+
+    <div class="form-inline">
+        <select (change)="change()" [(ngModel)]="selectedValue" class="form-control p-3" id="dropdown">
+            <option *ngFor="let timeRange of timeRanges" [value]="timeRange.id">{{timeRange.value}}</option>
+        </select>
+    </div>
+</div>

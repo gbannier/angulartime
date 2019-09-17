@@ -8,6 +8,8 @@ import {Entry} from '../models/entry.model';
 import {AdditionalFeeOption} from '../models/additional-fee-option.model';
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {BaseDataService} from './base-data-service'
+import {TimeRange} from "../../components/timetracking/projects/dropdown-filter/dropdown-filter.component";
+import {FilterType} from "../enums/filter-type.enum";
 
 @Injectable({
     providedIn: 'root',
@@ -20,6 +22,9 @@ export class DataEntryService extends BaseDataService {
     entriesUrl = 'assets/projects/';
     additionalFeeOptionsUrl = 'assets/additionalfee-options.json';
     additionalFeeOptions: AdditionalFeeOption[];
+    timeRangeUrl = "assets/timeranges.json";
+    timeRanges: TimeRange[];
+    selectedTimeRange: TimeRange;
     dataItem: Entry;
     originalContractId: string;
     originalProjectIds: string[] = [];
@@ -40,10 +45,10 @@ export class DataEntryService extends BaseDataService {
         };
     }
 
-    static reFormatDate(ngDate: NgbDateStruct): string {
+    static reFormatDate(ngDate: NgbDateStruct, dateObjectRequired?: boolean): string | Date {
         if (ngDate) {
             let date = new Date(ngDate.year, ngDate.month - 1, ngDate.day);
-            return date.toISOString();
+            return dateObjectRequired ? date : date.toISOString();
         }
         return null;
     }
@@ -60,6 +65,12 @@ export class DataEntryService extends BaseDataService {
         );
     }
 
+    getTimeRanges() {
+        return this.http.get<TimeRange[]>(this.timeRangeUrl).pipe(
+            catchError(BaseDataService.handleError),
+            delay(300));
+    }
+
     getContracts(): Observable<Contract[]> {
         return this.http.get<Contract[]>(this.contractsUrl).pipe(
             catchError(DataEntryService.handleError),
@@ -74,11 +85,15 @@ export class DataEntryService extends BaseDataService {
         );
     }
 
-    getEntriesByProjectId(i: number) {
+    getEntriesByProjectIds(i: number, filterType?: FilterType) {
         // console.log(i, 'index');
         // console.log(this.originalProjectIds, 'index');
         // console.log(DataEntryService.reFormatDate(this.startDate) as string);
         // console.log(DataEntryService.reFormatDate(this.endDate) as string);
+        if (filterType && filterType === FilterType.TimeRange) {
+            this.timeRangeToDate();
+            // we can to this conversion here or you can send the id from the range parameter to request.
+        }
         return this.http.get<Entry[]>(this.entriesUrl + this.originalContractId
             + '/entries/' + this.originalProjectIds[i] + '/entries-data.json').pipe(
             catchError(DataEntryService.handleError),
@@ -91,6 +106,9 @@ export class DataEntryService extends BaseDataService {
         // this.http.post('my-url',this.buildEntryData() )
     }
 
+    private timeRangeToDate() {
+        // we can to this conversion here or you can send the id from the range parameter to request
+    }
 
     private buildEntryData(index) {
         let item = new Entry();
