@@ -1,9 +1,17 @@
-<div class="form-group p-3">
-    <label for="dropdown" i18n>Auswählen:</label>
-
-    <div class="form-inline">
-        <select (change)="change()" [(ngModel)]="selectedValue" class="form-control p-3" id="dropdown">
-            <option *ngFor="let timeRange of timeRanges" [value]="timeRange.id">{{timeRange.value}}</option>
-        </select>
+<div class="row">
+    <div class="form-group p-3">
+        <label for="dropdown" i18n>Auswählen:</label>
+        <div class="form-inline">
+            <select (change)="change()" [(ngModel)]="selectedValue" class="form-control p-3" id="dropdown">
+                <option *ngFor="let timeRange of timeRanges" [ngValue]="timeRange">{{timeRange.value}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group p-3">
+        <label for="kwChoose" i18n>KW:</label>
+        <div class="form-inline">
+            <input (blur)="blur()" (keydown)="keyDown($event)" [(ngModel)]="kw" class="form-control p-3" id="kwChoose"
+                   max="52" min="1" type="number">
+        </div>
     </div>
 </div>

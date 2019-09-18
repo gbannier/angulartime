@@ -1,4 +1,5 @@
 export enum FilterType {
     DateRange,
-    TimeRange
+    TimeRange,
+    kw
 }

@@ -1,6 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Contract} from '../models/contract.model';
+import {
+    FirstDayOfLastMonth,
+    FirstDayOfLastWeek,
+    FirstDayOfMonth,
+    GetLastMonday,
+    LastDayOfLastMonth,
+    LastDayOfLastWeek
+} from '../utilities/date'
 import {Observable} from 'rxjs';
 import {catchError, delay} from 'rxjs/operators';
 import {Project} from '../models/project.model';
@@ -31,7 +39,7 @@ export class DataEntryService extends BaseDataService {
     startDate: NgbDateStruct;
     endDate: NgbDateStruct;
     entries: Entry[][] = [];
-
+    kw: number;
     constructor(protected http: HttpClient) {
         super(http);
     }
@@ -45,10 +53,10 @@ export class DataEntryService extends BaseDataService {
         };
     }
 
-    static reFormatDate(ngDate: NgbDateStruct, dateObjectRequired?: boolean): string | Date {
+    static reFormatDate(ngDate: NgbDateStruct, returnDate?: boolean): string | Date {
         if (ngDate) {
             let date = new Date(ngDate.year, ngDate.month - 1, ngDate.day);
-            return dateObjectRequired ? date : date.toISOString();
+            return returnDate ? date : date.toISOString();
         }
         return null;
     }
@@ -86,13 +94,12 @@ export class DataEntryService extends BaseDataService {
     }
 
     getEntriesByProjectIds(i: number, filterType?: FilterType) {
-        // console.log(i, 'index');
-        // console.log(this.originalProjectIds, 'index');
-        // console.log(DataEntryService.reFormatDate(this.startDate) as string);
-        // console.log(DataEntryService.reFormatDate(this.endDate) as string);
+        // TODO these funtions has to triggered earlier due to select dates before data is loaded
         if (filterType && filterType === FilterType.TimeRange) {
             this.timeRangeToDate();
-            // we can to this conversion here or you can send the id from the range parameter to request.
+        }
+        if (filterType && filterType === FilterType.kw) {
+            this.kwToDate();
         }
         return this.http.get<Entry[]>(this.entriesUrl + this.originalContractId
             + '/entries/' + this.originalProjectIds[i] + '/entries-data.json').pipe(
@@ -106,8 +113,76 @@ export class DataEntryService extends BaseDataService {
         // this.http.post('my-url',this.buildEntryData() )
     }
 
+    kwToDate() {
+        let date = new Date();
+        let currentYear = date.getFullYear();
+        let firstDayOfISOWeek = this.firstDateOfISOWeek(this.kw, currentYear)
+        this.startDate = DataEntryService.formatDate(firstDayOfISOWeek);
+        let lastDayOfISOWeek = this.lastWeekOfIsoWeek(this.kw, currentYear)
+        this.endDate = DataEntryService.formatDate(lastDayOfISOWeek);
+    }
+
+    // TODO move to date utilitiues
+    firstDateOfISOWeek(w, y) {
+        let simple = new Date(y, 0, 1 + ((w - 1) * 7));
+        let dow = simple.getDay();
+        let ISOweekStart = simple;
+        if (dow <= 4)
+            ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+        else
+            ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+        return ISOweekStart;
+    }
+
+    lastWeekOfIsoWeek(w, y) {
+        let simple = new Date(y, 0, 1 + ((w - 1) * 7));
+        let dow = simple.getDay();
+        let ISOweekEnd = simple;
+        if (dow <= 4)
+            ISOweekEnd.setDate(simple.getDate() - simple.getDay() + 1 + 6);
+        else
+            ISOweekEnd.setDate(simple.getDate() + 8 - simple.getDay() + 6);
+        return ISOweekEnd;
+    }
+
     private timeRangeToDate() {
-        // we can to this conversion here or you can send the id from the range parameter to request
+        switch (this.selectedTimeRange.id) {
+
+            case '0': {
+                let lastMonday = GetLastMonday(new Date());
+                this.startDate = null;
+                this.endDate = DataEntryService.formatDate(new Date());
+                break;
+            }
+            case '1': {
+                let lastMonday = GetLastMonday(new Date());
+                this.startDate = DataEntryService.formatDate(lastMonday);
+                this.endDate = DataEntryService.formatDate(new Date());
+                break;
+            }
+            case '2': {
+                let firstDayOfLastWeek = FirstDayOfLastWeek(new Date());
+                this.startDate = DataEntryService.formatDate(firstDayOfLastWeek);
+                let lastDayOfLastWeek = LastDayOfLastWeek(new Date());
+                this.endDate = DataEntryService.formatDate(lastDayOfLastWeek);
+                break;
+            }
+            case '3': {
+                let firstDayOfLastMonth = FirstDayOfLastMonth(new Date());
+                let firstDayOfMonth = FirstDayOfMonth(new Date());
+                this.startDate = DataEntryService.formatDate(firstDayOfMonth);
+                this.endDate = DataEntryService.formatDate(new Date());
+                break;
+            }
+            case '4': {
+
+                let firstDayOfLastMonth = FirstDayOfLastMonth(new Date());
+                this.startDate = DataEntryService.formatDate(firstDayOfLastMonth);
+                let lastDayOfLastMonth = LastDayOfLastMonth(new Date());
+                this.endDate = DataEntryService.formatDate(lastDayOfLastMonth);
+                break;
+            }
+        }
     }
 
     private buildEntryData(index) {
@@ -124,5 +199,4 @@ export class DataEntryService extends BaseDataService {
 
         return item;
     }
-
 }

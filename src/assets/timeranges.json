@@ -1,18 +1,22 @@
 [
   {
-    "id": "uu",
+    "id": "0",
     "value": "alle"
   },
   {
-    "id": "aa",
+    "id": "1",
+    "value": "laufende Woche"
+  },
+  {
+    "id": "2",
     "value": "letzte Woche"
   },
   {
-    "id": "bb",
-    "value": "letzter Monat"
+    "id": "3",
+    "value": "laufender Monat"
   },
   {
-    "id": "cc",
-    "value": "KW22"
+    "id": "4",
+    "value": "letzter Monat"
   }
 ]

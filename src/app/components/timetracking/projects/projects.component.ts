@@ -33,7 +33,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         this.dataService.entries = [];
         for (let i = 0; i < this.dataService.originalProjectIds.length; i++) {
             if (this.dataService.originalProjectIds[i]) {
-                this.dataService.entries[i] = await this.dataService.getEntriesByProjectIds(i).toPromise();
+                this.dataService.entries[i] = await this.dataService.getEntriesByProjectIds(i, filterType).toPromise();
                 this.dataService.entries[i].forEach((entry: Entry) => entry.AdditionalFeeId = this.dataService.getOptionValue(entry.AdditionalFeeId as string));
             }
         }
