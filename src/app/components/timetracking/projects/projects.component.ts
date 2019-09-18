@@ -19,6 +19,11 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.subscription = this.route.params.subscribe(params => {
+            // choose new Contract ?
+            this.dataService.startDate = null;
+            this.dataService.endDate = null;
+            this.dataService.kw = null;
+            //
             this.projects = null;
             this.dataService.entries = [];
             this.dataService.originalProjectIds = [];
@@ -33,7 +38,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         this.dataService.entries = [];
         for (let i = 0; i < this.dataService.originalProjectIds.length; i++) {
             if (this.dataService.originalProjectIds[i]) {
-                this.dataService.entries[i] = await this.dataService.getEntriesByProjectIds(i).toPromise();
+                this.dataService.entries[i] = await this.dataService.getEntriesByProjectIds(i, filterType).toPromise();
                 this.dataService.entries[i].forEach((entry: Entry) => entry.AdditionalFeeId = this.dataService.getOptionValue(entry.AdditionalFeeId as string));
             }
         }

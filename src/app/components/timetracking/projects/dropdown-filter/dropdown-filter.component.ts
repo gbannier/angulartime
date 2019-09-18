@@ -36,12 +36,32 @@ export class DropdownFilterComponent implements OnInit {
         this.dataService.timeRanges = value;
     }
 
+    get kw(): number {
+        return this.dataService.kw;
+    }
+
+    set kw(value: number) {
+        this.dataService.kw = value;
+    }
+
+
     async ngOnInit() {
         this.dataService.timeRanges = await this.dataService.getTimeRanges().toPromise() as TimeRange[];
     }
 
     change() {
         this.loadFilteredEntries.emit(FilterType.TimeRange)
+    }
+
+    blur() {
+        this.loadFilteredEntries.emit(FilterType.kw)
+    }
+
+    // trigger when press enter?
+    keyDown(event) {
+        if (event.keyCode == 13) {
+            this.loadFilteredEntries.emit(FilterType.kw)
+        }
 
     }
 }
