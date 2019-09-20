@@ -7,6 +7,8 @@ import {NumberQuestion} from '../../../../../common/reactive-form/number-questio
 import {DateQuestion} from '../../../../../common/reactive-form/date-question';
 import {DataEntryService} from '../../../../../common/services/data-entry.service';
 import {AdditionalFeeOption} from '../../../../../common/models/additional-fee-option.model';
+import {TimeStartQuestion} from "../../../../../common/reactive-form/time-start-question";
+import {TimeEndQuestion} from "../../../../../common/reactive-form/time-end-question";
 
 
 @Injectable()
@@ -34,26 +36,41 @@ export class QuestionService {
         key: 'Hours',
         label: 'Anzahl Stunden',
         type: 'number',
-        required: true,
+        required: false,
         value: this.entry.Hours,
         order: 2,
+        readonly: true
       }),
 
+      new TimeStartQuestion({
+        key: 'StartTime',
+        label: 'Anfangszeit',
+        type: 'timeStart',
+        value: DataEntryService.formatTime(new Date(this.entry.StartDateDisplay), true),
+        order: 3,
+      }),
+
+      new TimeEndQuestion({
+        key: 'EndTime',
+        label: 'Endzeit',
+        type: 'timeEnd',
+        value: DataEntryService.formatTime(new Date(this.entry.EndDateDisplay), true),
+        order: 4,
+      }),
       new DateQuestion({
         key: 'StartDateDisplay',
         label: 'Tag',
         type: 'date',
         value: DataEntryService.formatDate(new Date(this.entry.StartDateDisplay)),
-        order: 3,
+        order: 5,
       }),
-
       new DropdownQuestion({
         key: 'AdditionalFeeId',
         label: 'Stundenart',
         options: this.dataService.additionalFeeOptions,
         // not the best approuch, alternativle we could add a temp property
         value: (this.entry.AdditionalFeeId as AdditionalFeeOption).id,
-        order: 4
+        order: 6
       }),
     ];
 

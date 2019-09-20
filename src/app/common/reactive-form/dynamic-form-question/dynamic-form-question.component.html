@@ -6,8 +6,9 @@
       <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key"
              [type]="question['type']" class="form-control required">
 
-    <input class="form-control" *ngSwitchCase="'number'" [formControlName]="question.key"
-           [id]="question.key" [type]="question['type']">
+      <input *ngSwitchCase="'number'" [formControlName]="question.key" [readonly]="question.readonly"
+             class="form-control"
+             [id]="question.key" [type]="question['type']">
 
       <select *ngSwitchCase="'dropdown'" [formControlName]="question.key" [id]=" question.key" class="form-control">
           <!--      i prefer to make Normal as default?-->
@@ -22,8 +23,17 @@
           <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"><i class="fa fa-calendar"></i></button>
         </div>
     </div>
+      <div class="input-group row">
+          <div *ngSwitchCase="'timeStart'" class="col">
+              <ngb-timepicker [(ngModel)]="timeStart" [formControlName]="question.key" [id]="question.key"
+                              [meridian]="false" [size]="'small'"></ngb-timepicker>
+          </div>
+          <div *ngSwitchCase="'timeEnd'" class="col">
+              <ngb-timepicker [(ngModel)]="timeEnd" [formControlName]="question.key" [id]="question.key"
+                              [meridian]="false" [size]="'small'"></ngb-timepicker>
+          </div>
+      </div>
   </div>
 
     <div *ngIf="!isValid" class="alert alert-warning" role="alert">{{question.label}} is required</div>
 </div>
-

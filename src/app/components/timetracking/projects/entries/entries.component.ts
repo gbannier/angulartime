@@ -50,6 +50,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     open(entry?: Entry) {
         let item = entry ? entry : this.buildNewEntry();
+        // toDo das ist etwas doppelt gemoppelt...das item kann auch nur in den Service und der Questionservice referiert das.
+        console.log(item, 'ich bin das entry');
         this.questionService.entry = item;
         this.dataService.dataItem = item;
         const modalRef = this.modalService.open(ModalComponent);
@@ -71,9 +73,13 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     private buildNewEntry(): Entry {
         let entry = new Entry();
-        let date = new Date();
-        date.setUTCHours(0, 0, 0, 0);
-        entry.StartDateDisplay = date.toISOString();
+        let startDate = new Date();
+        // ich defniere mal ein Arbeitsbegin von 8 als default
+        startDate.setHours(8, 0, 0, 0);
+        entry.StartDateDisplay = startDate;
+        let endDate = new Date(); // nur für einen end Zeit Punkt
+        endDate.setHours(17, 0, 0);
+        entry.EndDateDisplay = undefined;
         entry.AdditionalFeeId = this.dataService.additionalFeeOptions.find((option) => option.value === 'Normal'); // we need a config
         return entry;
     }

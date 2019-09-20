@@ -5,7 +5,7 @@ export class Entry extends BaseModel {
   ContractId: string;
   Description: string;
   Hours: number;
-  EndDateDisplay: Date;
+  EndDateDisplay: Date | string;
   StartDateDisplay: Date | string;
   UserId: string;
   SubContractId: string;

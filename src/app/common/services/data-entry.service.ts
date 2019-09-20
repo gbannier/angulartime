@@ -14,7 +14,7 @@ import {catchError, delay} from 'rxjs/operators';
 import {Project} from '../models/project.model';
 import {Entry} from '../models/entry.model';
 import {AdditionalFeeOption} from '../models/additional-fee-option.model';
-import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
+import {NgbDateStruct, NgbTimeStruct} from "@ng-bootstrap/ng-bootstrap";
 import {BaseDataService} from './base-data-service'
 import {TimeRange} from "../../components/timetracking/projects/dropdown-filter/dropdown-filter.component";
 import {FilterType} from "../enums/filter-type.enum";
@@ -49,8 +49,20 @@ export class DataEntryService extends BaseDataService {
         return {
             year: date.getFullYear(),
             month: date.getMonth() + 1,
-            day: date.getDate()
+            day: date.getDate(),
         };
+    }
+
+    // todo may copy to utilities; if you like do it with moments.js
+    static formatTime(date: Date, newDate?: boolean): NgbTimeStruct {
+
+        let ngb =
+            {
+                hour: !newDate ? date.getHours() : 0,
+                minute: !newDate ? date.getMinutes() : 0,
+                second: 0
+        };
+        return ngb;
     }
 
     static reFormatDate(ngDate: NgbDateStruct, returnDate?: boolean): string | Date {
@@ -196,7 +208,8 @@ export class DataEntryService extends BaseDataService {
         // item.AdditionalFeeId = this.form.value.AdditionalFeeId.id;
         item.AdditionalFeeId = this.form.value.AdditionalFeeId;
         item.StartDateDisplay = DataEntryService.reFormatDate(this.form.value.StartDateDisplay) as string;
-
+        item.EndDateDisplay = DataEntryService.reFormatDate(this.form.value.StartDateDisplay) as string;
+        console.log(this.form.value.EndDateDisplay, 'save');
         return item;
     }
 }

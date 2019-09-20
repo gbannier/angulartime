@@ -23,7 +23,7 @@ registerLocaleData(localeDeCh);
     NgbModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}), // because ngbTimepicker doesmnt support reactiveForms yet
     HttpClientModule,
     AppRoutingModule,
     TimetrackingModule
