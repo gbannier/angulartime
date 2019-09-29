@@ -5,13 +5,13 @@ import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {TimetrackingRoutingModule} from "../timetracking.routing.module";
-import {ContractComponent} from "../contracts/contract.component";
 import {EntriesComponent} from "./entries/entries.component";
 import {ModalComponent} from "./entries/modal/modal.component";
 import {DynamicFormComponent} from "../../../common/reactive-form/dynamic-form/dynamic-form.component";
 import {DynamicFormQuestionComponent} from "../../../common/reactive-form/dynamic-form-question/dynamic-form-question.component";
 import {AppRoutingModule} from "../../../app.routing.module";
 import {DataEntryService} from "../../../common/services/data-entry.service";
+import {AppModule} from "../../../app.module";
 
 describe('ProjectsComponent', () => {
     let component: ProjectsComponent;
@@ -19,13 +19,13 @@ describe('ProjectsComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ContractComponent,
+            declarations: [
                 ProjectsComponent,
                 EntriesComponent,
                 ModalComponent,
                 DynamicFormComponent,
                 DynamicFormQuestionComponent],
-            imports: [CommonModule,
+            imports: [CommonModule, AppModule,
                 FormsModule,
                 NgbModule,
                 TimetrackingRoutingModule,

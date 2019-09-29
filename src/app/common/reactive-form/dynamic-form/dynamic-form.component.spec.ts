@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DynamicFormComponent } from './dynamic-form.component';
+import {DynamicFormComponent} from './dynamic-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DynamicFormQuestionComponent} from "../dynamic-form-question/dynamic-form-question.component";
 import {ContractComponent} from "../../../components/timetracking/contracts/contract.component";
@@ -10,6 +10,7 @@ import {ModalComponent} from "../../../components/timetracking/projects/entries/
 import {CommonModule} from "@angular/common";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {TimetrackingRoutingModule} from "../../../components/timetracking/timetracking.routing.module";
+import {AppModule} from "../../../app.module";
 
 describe('DynamicFormComponent', () => {
   let component: DynamicFormComponent;
@@ -26,7 +27,7 @@ describe('DynamicFormComponent', () => {
       imports: [CommonModule,
         FormsModule,
         NgbModule,
-        TimetrackingRoutingModule,
+          TimetrackingRoutingModule, AppModule,
         ReactiveFormsModule]
     })
     .compileComponents();

@@ -28,6 +28,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
             this.dataService.entries = [];
             this.dataService.originalProjectIds = [];
             this.dataService.originalContractId = params.id;
+
             this.dataService.getProjectsByContractId().subscribe((projects: Project[]) => {
                 this.projects = projects;
             });

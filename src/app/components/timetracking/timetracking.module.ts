@@ -34,7 +34,7 @@ import {DropdownFilterComponent} from "./projects/dropdown-filter/dropdown-filte
 
     ],
     providers: [QuestionService],
-    exports: [ContractComponent],
+    exports: [],
     entryComponents: [ModalComponent]
 
 })
