@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.1.0",
     "@angular/router": "~8.1.0",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
-    "acorn": "^6.0.5",
+    "acorn": "^6.4.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "flag-icon-css": "^3.3.0",
